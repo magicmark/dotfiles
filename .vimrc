@@ -10,6 +10,7 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 
 syntax on
