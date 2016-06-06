@@ -11,6 +11,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'elzr/vim-json'
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 
 syntax on
