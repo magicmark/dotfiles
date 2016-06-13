@@ -26,7 +26,6 @@ filetype plugin indent on
 syntax enable
 set background=dark
 " colorscheme solarized
-colorscheme solarized
 colorscheme monokai
 
 set t_Co=256  " vim-monokai now only support 256 colours in terminal.
