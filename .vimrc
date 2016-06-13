@@ -5,13 +5,19 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'nvie/vim-flake8'
+" ========================================================
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'crusoexia/vim-monokai'
 Plugin 'elzr/vim-json'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'nvie/vim-flake8'
+Plugin 'pangloss/vim-javascript'
+Plugin 'wookiehangover/jshint.vim'
+" ========================================================
 call vundle#end()
 
 syntax on
@@ -19,15 +25,42 @@ filetype plugin indent on
 
 syntax enable
 set background=dark
+" colorscheme solarized
 colorscheme solarized
+colorscheme monokai
+
+set t_Co=256  " vim-monokai now only support 256 colours in terminal.
+" ========================================================
+
+" bling/vim-airline settings
+
 
 " vim airline show status bar
 set laststatus=2
 " vim powerline fonts for arrows
 let g:airline_powerline_fonts = 1
-
 " Instead of displaying file encoding, display absolute file path.
 let g:airline_section_y = airline#section#create(['%F'])
+
+" ========================================================
+
+" heavenshell/vim-jsdoc settings
+
+
+" Allow prompt for interactive input.
+let g:jsdoc_allow_input_prompt = 1
+
+" Prompt for a function description
+let g:jsdoc_input_description = 1
+
+" Don't add the @return tag.
+let g:jsdoc_return = 0
+let g:jsdoc_return_type = 0
+
+" Characters used to separate @param name and description.
+let g:jsdoc_param_description_separator	= ' - '
+
+" ========================================================
 
 
 " line numbers
