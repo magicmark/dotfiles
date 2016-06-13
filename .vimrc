@@ -30,10 +30,10 @@ colorscheme solarized
 colorscheme monokai
 
 set t_Co=256  " vim-monokai now only support 256 colours in terminal.
+
 " ========================================================
-
 " bling/vim-airline settings
-
+" ========================================================
 
 " vim airline show status bar
 set laststatus=2
@@ -43,9 +43,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_y = airline#section#create(['%F'])
 
 " ========================================================
-
 " heavenshell/vim-jsdoc settings
-
+" ========================================================
 
 " Allow prompt for interactive input.
 let g:jsdoc_allow_input_prompt = 1
@@ -61,7 +60,15 @@ let g:jsdoc_return_type = 0
 let g:jsdoc_param_description_separator	= ' - '
 
 " ========================================================
+" elzr/vim-json settings
+" ========================================================
 
+" Disable the concealing
+let g:vim_json_syntax_conceal = 0
+
+" ========================================================
+" vim settings
+" ========================================================
 
 " line numbers
 set number
