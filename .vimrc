@@ -10,25 +10,36 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
-Plugin 'crusoexia/vim-monokai'
 Plugin 'elzr/vim-json'
+Plugin 'ervandew/supertab'
+Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
+Plugin 'kien/ctrlp.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'nvie/vim-flake8'
 Plugin 'pangloss/vim-javascript'
-Plugin 'wookiehangover/jshint.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'wikitopian/hardmode'
+" Plugin 'wookiehangover/jshint.vim'
+" ========================================================
+Bundle 'edkolev/tmuxline.vim'
 " ========================================================
 call vundle#end()
 
+" theme settings
+
 syntax on
 filetype plugin indent on
-
+" let g:solarized_termcolors=256
 syntax enable
 set background=dark
-" colorscheme solarized
-colorscheme monokai
-
-set t_Co=256  " vim-monokai now only support 256 colours in terminal.
+ colorscheme solarized
+" colorscheme monokai
+set cursorline
+" set t_Co=256  " vim-monokai now only support 256 colours in terminal.
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termtrans = 1
 
 " ========================================================
 " bling/vim-airline settings
@@ -40,6 +51,21 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 " Instead of displaying file encoding, display absolute file path.
 let g:airline_section_y = airline#section#create(['%F'])
+
+" ========================================================
+" scrooloose/syntastic settings
+" ========================================================
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 " ========================================================
 " heavenshell/vim-jsdoc settings
@@ -82,6 +108,11 @@ set shiftwidth=4
 
 imap jj <Esc>
 
+" make splits faster in tmux
+" http://unix.stackexchange.com/a/240693
+set lazyredraw
+set ttyfast
+
 " Disable Arrow keys in Escape mode
 map <up> <nop>
 map <down> <nop>
@@ -103,10 +134,24 @@ set timeoutlen=200
 " With buffers, don't force save (http://usevim.com/2012/10/19/vim101-set-hidden/)
 set hidden
 
+" set ruler
+set colorcolumn=80
 
 " ========================================================
 " snippets
 " ========================================================
+
+function! SpellCheck()
+    let l:word = input("Word you're trying to spell: ")
+    let l:result = system('/nail/home/markl/scripts/spellcheck.py ' . word)
+    redraw
+    echo l:result
+    let @@ = l:result
+endfunction 
+
+command SpellCheck :call SpellCheck()
+
+
 
 " https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
 
