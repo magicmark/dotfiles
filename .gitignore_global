@@ -3,5 +3,8 @@ zedrem
 ._*
 .AppleDouble
 .LSOverride
-ranger_stat_server
 .c9
+*~
+*.swp
+*.swo
+

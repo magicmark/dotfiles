@@ -25,7 +25,7 @@ import argparse
 def ask_user(prompt):
     valid = {"yes":True, 'y':True, '':True, "no":False, 'n':False}
     while True:
-        print(prompt+" ",end="")
+        print(prompt, end=" ")
         choice = input().lower()
         if choice in valid:
             return valid[choice]
@@ -33,16 +33,10 @@ def ask_user(prompt):
             print("Enter a correct choice.", file=stderr)
 
 
-def create_directory(path):
-    exp = os.path.expanduser(path)
-    if (not os.path.isdir(exp)):
-        print(exp+" doesnt exist, creating.")
-        os.makedirs(exp)
-
-
 def create_symlink(src, dest, replace):
-    dest = os.path.expanduser(dest)
-    src = os.path.abspath(src)
+    if not os.path.exists(src):
+        raise Exception(src + ' does not exist!')
+
     if os.path.exists(dest):
         if os.path.islink(dest) and os.readlink(dest) == src:
             print("Skipping existing {0} -> {1}".format(dest, src))
@@ -54,26 +48,9 @@ def create_symlink(src, dest, replace):
                 shutil.rmtree(dest)
         else:
             return
+
     print("Linking {0} -> {1}".format(dest, src))
     os.symlink(src, dest)
-
-
-def copy_path(src, dest):
-    dest = os.path.expanduser(dest)
-    src = os.path.abspath(src)
-    if os.path.exists(dest):
-        if ask_user(dest+ " exists, delete it? [Y/n]"):
-            if os.path.isfile(dest):
-                os.remove(dest)
-            else:
-                shutil.rmtree(dest)
-        else:
-            return
-    print("Copying {0} -> {1}".format(src, dest))
-    if os.path.isfile(src):
-        shutil.copy(src, dest)
-    else:
-        shutil.copytree(src, dest)
 
 
 def run_command(command):
@@ -85,30 +62,22 @@ def main():
     parser.add_argument("config", help="the JSON file you want to use")
     parser.add_argument("-r", "--replace", action="store_true",
                         help="replace files/folders if they already exist")
+
     args = parser.parse_args()
     js = json.load(open(args.config))
-    os.chdir(os.path.expanduser(os.path.abspath(os.path.dirname(args.config))))
+    
+    dotfiles_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    directories = js.get("directories")
-    links = js.get("link")
-    copy = js.get("copy")
+    symlinks = js.get("symlink")
     commands = js.get("commands")
-    pacman = js.get("pacman")
 
-    if directories: [create_directory(path) for path in directories]
+    for file in symlinks:
+        file_path = os.path.join(dotfiles_path, file)
+        symlink_path = os.path.join(os.path.expanduser('~'), file)
 
-    if links: [create_symlink(src, links[src], args.replace) for src in links]
-
-    if copy: [copy_path(src, copy[src]) for src in copy]
+        create_symlink(file_path, symlink_path, args.replace)
 
     if commands: [run_command(command) for command in commands]
-
-    if pacman:
-        packages = ""
-        for package in pacman:
-            packages += package + " "
-
-        run_command("sudo pacman -S "+packages)
 
     print("Done!")
 

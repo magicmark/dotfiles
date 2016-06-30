@@ -10,19 +10,19 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'elzr/vim-json'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'nvie/vim-flake8'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
 Plugin 'wikitopian/hardmode'
+Plugin 'Yggdroot/indentLine'
 " Plugin 'wookiehangover/jshint.vim'
-" ========================================================
-Bundle 'edkolev/tmuxline.vim'
 " ========================================================
 call vundle#end()
 
@@ -40,6 +40,15 @@ set cursorline
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:solarized_termtrans = 1
+
+" mark stuff
+:noremap p[ :bp <cr>
+:inoremap p[ <Esc>:bp <cr>
+:noremap p] :bn <cr>
+:inoremap p] <Esc>:bn <cr>
+
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+
 
 " ========================================================
 " bling/vim-airline settings

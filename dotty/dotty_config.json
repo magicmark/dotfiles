@@ -1,0 +1,16 @@
+{
+    "symlink": [
+        ".vimrc",
+        ".tmux.conf",
+        ".less",
+        ".lesskey",
+        ".gitignore_global",
+        ".gitconfig",
+        ".screenrc",
+        ".zshrc",
+        ".zshrc.osx"
+    ],
+    "commands": [
+        "vim +PluginInstall +qall"
+    ]
+}
