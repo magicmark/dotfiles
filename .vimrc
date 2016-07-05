@@ -8,47 +8,69 @@ Plugin 'VundleVim/Vundle.vim'
 " ========================================================
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'bling/vim-bufferline'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'elzr/vim-json'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'nvie/vim-flake8'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
-Plugin 'wikitopian/hardmode'
+Plugin 'scrooloose/nerdtree'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 " Plugin 'wookiehangover/jshint.vim'
 " ========================================================
 call vundle#end()
 
+" ========================================================
 " theme settings
+" ========================================================
 
 syntax on
 filetype plugin indent on
 " let g:solarized_termcolors=256
 syntax enable
 set background=dark
- colorscheme solarized
+
+colorscheme solarized
 " colorscheme monokai
-set cursorline
-" set t_Co=256  " vim-monokai now only support 256 colours in terminal.
+
+" set cursorline
+"set t_Co=256  " vim-monokai now only support 256 colours in terminal.
+
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:solarized_termtrans = 1
 
-" mark stuff
+" ========================================================
+" personal keybindings
+" ========================================================
 :noremap p[ :bp <cr>
 :inoremap p[ <Esc>:bp <cr>
 :noremap p] :bn <cr>
 :inoremap p] <Esc>:bn <cr>
 
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+:noremap -- :NERDTreeToggle <cr>
+:inoremap -- <Esc>:NERDTreeToggle <cr>
 
+" ========================================================
+" airblade/vim-gitgutter settings
+" ========================================================
+
+" https://github.com/airblade/vim-gitgutter/issues/164#issuecomment-75758204
+highlight clear SignColumn
+call gitgutter#highlight#define_highlights()
+
+" ========================================================
+" Yggdroot/indentLine settings
+" ========================================================
+let g:indentLine_leadingSpaceEnabled = 1
 
 " ========================================================
 " bling/vim-airline settings
@@ -60,6 +82,7 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 " Instead of displaying file encoding, display absolute file path.
 let g:airline_section_y = airline#section#create(['%F'])
+let g:airline#extensions#tabline#enabled = 1
 
 " ========================================================
 " scrooloose/syntastic settings
@@ -75,6 +98,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
 " ========================================================
 " heavenshell/vim-jsdoc settings
@@ -85,10 +109,6 @@ let g:jsdoc_allow_input_prompt = 1
 
 " Prompt for a function description
 let g:jsdoc_input_description = 1
-
-" Don't add the @return tag.
-let g:jsdoc_return = 0
-let g:jsdoc_return_type = 0
 
 " Characters used to separate @param name and description.
 let g:jsdoc_param_description_separator	= ' - '
@@ -145,6 +165,16 @@ set hidden
 
 " set ruler
 set colorcolumn=80
+set colorcolumn=+1
+
+set splitbelow
+set splitright
+
+" Searching
+set ignorecase  
+set incsearch
+
+set backspace=indent,eol,start
 
 " ========================================================
 " snippets

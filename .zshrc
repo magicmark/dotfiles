@@ -11,7 +11,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vim'
 
 if [[ `uname` == 'Darwin' ]]; then
     export IS_OSX=1
@@ -21,6 +20,11 @@ if [[ `uname` == 'Darwin' ]]; then
     fi
 fi
 
+if [[ -e ~/.profile ]]; then
+    source ~/.profile
+fi
+
 if [[ -e ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
+

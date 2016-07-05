@@ -4,6 +4,8 @@ This exists mainly for my own purposes. There are doubtless better dotfile repos
 
 That said, if you must, feel free!
 
+(This setup assumes zsh with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).)
+
 ## To install
 
 The install script will symlink the dotfiles. It will not overwrite any existing files and ask for confirmation.
