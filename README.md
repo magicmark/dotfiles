@@ -1,6 +1,6 @@
 # markl's dotfiles
 
-![Terminal Preview](http://i.imgur.com/KozwydI.png)
+![Terminal Preview](http://i.imgur.com/WelMB1w.png)
 
 This exists mainly for my own purposes. There are doubtless better dotfile repos to look at, such as [this one](https://github.com/mathiasbynens/dotfiles) - I probably wouldn't bother wasting your time looking here.
 
