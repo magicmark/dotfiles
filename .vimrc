@@ -59,6 +59,11 @@ let g:solarized_termtrans = 1
 :noremap -- :NERDTreeToggle <cr>
 :inoremap -- <Esc>:NERDTreeToggle <cr>
 
+
+
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+
+
 " ========================================================
 " airblade/vim-gitgutter settings
 " ========================================================
@@ -70,7 +75,8 @@ call gitgutter#highlight#define_highlights()
 " ========================================================
 " Yggdroot/indentLine settings
 " ========================================================
-let g:indentLine_leadingSpaceEnabled = 1
+"let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_char = '│'
 
 " ========================================================
 " bling/vim-airline settings
@@ -83,6 +89,7 @@ let g:airline_powerline_fonts = 1
 " Instead of displaying file encoding, display absolute file path.
 let g:airline_section_y = airline#section#create(['%F'])
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ========================================================
 " scrooloose/syntastic settings
