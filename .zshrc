@@ -1,8 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/dotfiles/custom_ohmyzsh
 
-ZSH_THEME="robbyrussell"
-
+ZSH_THEME="markl"
 plugins=(git tmux vundle virtualenv)
 
 # User configuration
@@ -20,11 +20,15 @@ if [[ `uname` == 'Darwin' ]]; then
     fi
 fi
 
-if [[ -e ~/.profile ]]; then
-    source ~/.profile
+if [[ -e ~/.profile.zsh ]]; then
+    source ~/.profile.zsh
 fi
 
 if [[ -e ~/.zshrc.local ]]; then
     source ~/.zshrc.local
+fi
+
+if [[ -e ~/.fzf.zsh ]]; then
+    source ~/.fzf.zsh
 fi
 

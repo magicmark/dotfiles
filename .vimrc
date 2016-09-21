@@ -157,6 +157,7 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 map g <nop>
+map U <nop>
 
 " Disable Arrow keys in Insert mode
 imap <up> <nop>
