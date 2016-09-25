@@ -11,6 +11,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
 
 source $ZSH/oh-my-zsh.sh
 
+export LC_ALL="en_US.UTF-8"
 
 if [[ `uname` == 'Darwin' ]]; then
     export IS_OSX=1
@@ -22,6 +23,8 @@ fi
 
 if [[ -e ~/.profile.zsh ]]; then
     source ~/.profile.zsh
+else
+    (>&2 echo "Could not find ~/.profile.zsh!")
 fi
 
 if [[ -e ~/.zshrc.local ]]; then
