@@ -1,12 +1,13 @@
 {
     "symlink": [
-        ".vimrc",
-        ".tmux.conf",
+        ".gitconfig",
+        ".gitignore_global",
         ".less",
         ".lesskey",
-        ".gitignore_global",
-        ".gitconfig",
+        ".profile.zsh",
         ".screenrc",
+        ".tmux.conf",
+        ".vimrc",
         ".zshrc",
         ".zshrc.osx"
     ],

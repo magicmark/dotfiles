@@ -6,6 +6,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 " ========================================================
+" Plugin 'wookiehangover/jshint.vim'
+Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'Yggdroot/indentLine'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -14,17 +17,16 @@ Plugin 'elzr/vim-json'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
-Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Yggdroot/indentLine'
-" Plugin 'wookiehangover/jshint.vim'
 " ========================================================
 call vundle#end()
 
@@ -154,6 +156,8 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+map g <nop>
+map U <nop>
 
 " Disable Arrow keys in Insert mode
 imap <up> <nop>
@@ -180,6 +184,7 @@ set splitright
 " Searching
 set ignorecase  
 set incsearch
+set nohlsearch
 
 set backspace=indent,eol,start
 
@@ -196,6 +201,14 @@ function! SpellCheck()
 endfunction 
 
 command SpellCheck :call SpellCheck()
+
+function! TODO()
+    let l:timestamp = strftime('%F')
+    let l:todo = ' TODO(markl|' . timestamp . '):  '
+    :exe ":normal i" . todo
+endfunction
+
+command TODO :call TODO()
 
 
 
