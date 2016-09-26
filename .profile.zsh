@@ -1,5 +1,6 @@
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+alias vim=nvim
 
 if [[ -e ~/.fzf.zsh ]]; then
     function ff {
