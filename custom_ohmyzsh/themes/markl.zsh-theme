@@ -17,7 +17,7 @@ function virtualenv_info {
 }
 
 function u2253 {
-    echo "%{$fg[white]%}≓%{$reset_color%}"
+    echo "%{$fg_bold[white]%}≓%{$reset_color%}"
 }
 
 function prompt_char {
@@ -31,6 +31,7 @@ function prompt_char {
 local curr_user="%{$fg_bold[blue]%}%n%{$reset_color%}"
 local curr_host="%{$fg_bold[green]%}%m%{$reset_color%}"
 local curr_dir="%{$fg_bold[cyan]%}%~%{$reset_color%}"
+local at_symbol="@"
 local top_brace="%{$FG[139]%}╭─%{$reset_color%}"
 local bottom_brace="%{$FG[139]%}╰─%{$reset_color%}"
 
