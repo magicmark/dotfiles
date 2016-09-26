@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/dotfiles/custom_ohmyzsh
+export DOTFILES=$HOME/dotfiles
 
 ZSH_THEME="markl"
 plugins=(git tmux vundle virtualenv)
