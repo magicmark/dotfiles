@@ -1,3 +1,13 @@
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+export TERM="xterm-256color"
+
+alias vim=nvim
+alias :e=nvim
+alias :E=nvim
+alias ezsh='nvim $DOTFILES/.zshrc'
+
+
 if [[ -e ~/.fzf.zsh ]]; then
     function ff {
         nvim $(fzf)

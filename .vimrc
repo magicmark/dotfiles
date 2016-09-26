@@ -19,6 +19,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'morhetz/gruvbox'
 Plugin 'nvie/vim-flake8'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
@@ -40,7 +41,19 @@ filetype plugin indent on
 syntax enable
 set background=dark
 
-colorscheme solarized
+if $VIM_THEME == 'gruvbox'
+    colorscheme gruvbox
+    let g:airline_theme='gruvbox'
+endif
+
+if $VIM_THEME == 'solarized'
+    colorscheme solarized
+    let g:airline_theme='solarized'
+endif
+
+
+
+
 " colorscheme monokai
 
 " set cursorline
