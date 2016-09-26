@@ -13,3 +13,5 @@ function fixssh {
     fi
   done
 }
+
+alias vim=nvim
