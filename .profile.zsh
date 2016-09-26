@@ -6,8 +6,10 @@ alias vim=nvim
 alias :e=nvim
 alias :E=nvim
 alias ezsh='nvim $DOTFILES/.zshrc'
-alias cddot='cd $DOTILES'
 
+function cddot {
+    cd $DOTFILES
+}
 
 if [[ -e ~/.fzf.zsh ]]; then
     function ff {
