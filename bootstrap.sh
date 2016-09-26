@@ -12,6 +12,12 @@ if [ ! `which nvim` ]; then
 fi
 
 
+if [ ! `which zsh` ]; then
+    echo "zsh is not installed - please install zsh!"
+    exit 1;
+fi
+
+
 if [ ! -d "~/.oh-my-zsh" ]; then
     curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 fi
