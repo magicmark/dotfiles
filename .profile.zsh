@@ -1,3 +1,6 @@
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 if [[ -e ~/.fzf.zsh ]]; then
     function ff {
         nvim $(fzf)
@@ -13,3 +16,9 @@ function fixssh {
     fi
   done
 }
+
+alias vim='nvim'
+alias :e='nvim'
+alias :E='nvim'
+
+alias ezsh='nvim $DOTFILES/.zshrc'
