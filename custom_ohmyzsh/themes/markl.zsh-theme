@@ -12,12 +12,12 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})%{$reset_color%}"
 function virtualenv_info {
     if [ $VIRTUAL_ENV ]; then
         local venv=`basename $VIRTUAL_ENV`
-        echo " %{$FX[bold]%}($venv)%{$reset_color%}"
+        echo " virtualenv:(%{$FG[166]%}${venv}%{$reset_color%})"
     fi
 }
 
 function u2253 {
-    echo "%{$fg_bold[white]%}≓%{$reset_color%}"
+    echo "%{$fg[white]%}≓%{$reset_color%}"
 }
 
 function prompt_char {
@@ -31,11 +31,12 @@ function prompt_char {
 local curr_user="%{$fg_bold[blue]%}%n%{$reset_color%}"
 local curr_host="%{$fg_bold[green]%}%m%{$reset_color%}"
 local curr_dir="%{$fg_bold[cyan]%}%~%{$reset_color%}"
-# local curr_git=`git rev-parse --abbrev-ref HEAD`
+local top_brace="%{$FG[139]%}╭─%{$reset_color%}"
+local bottom_brace="%{$FG[139]%}╰─%{$reset_color%}"
 
 PROMPT='
-╭─ ${curr_user}@${curr_host}: ${curr_dir}$(git_prompt_info)$(virtualenv_info)
-╰─ $(prompt_char) '
+${top_brace} ${curr_user}${at_symbol}${curr_host}: ${curr_dir}$(git_prompt_info)$(virtualenv_info)
+${bottom_brace} $(prompt_char)  '
 
 RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'
 ZLE_RPROMPT_INDENT=0
