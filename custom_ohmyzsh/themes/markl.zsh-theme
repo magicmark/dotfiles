@@ -36,7 +36,7 @@ local bottom_brace="%{$FG[139]%}╰─%{$reset_color%}"
 
 PROMPT='
 ${top_brace} ${curr_user}${at_symbol}${curr_host}: ${curr_dir}$(git_prompt_info)$(virtualenv_info)
-${bottom_brace} $(prompt_char)  '
+${bottom_brace} $(prompt_char) '
 
 RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'
 ZLE_RPROMPT_INDENT=0
