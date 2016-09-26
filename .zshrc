@@ -20,6 +20,12 @@ if [[ `uname` == 'Darwin' ]]; then
     if [[ -e ~/.zshrc.osx ]]; then
         source ~/.zshrc.osx
     fi
+elif [[ `uname` == 'Linux' ]]; then
+    export IS_LINUX=1
+
+    if [[ -e ~/.zshrc.linux ]]; then
+        source ~/.zshrc.linux
+    fi
 fi
 
 if [[ -e ~/.profile.zsh ]]; then
