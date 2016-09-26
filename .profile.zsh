@@ -6,6 +6,7 @@ alias vim=nvim
 alias :e=nvim
 alias :E=nvim
 alias ezsh='nvim $DOTFILES/.zshrc'
+alias cddot='cd $DOTILES'
 
 
 if [[ -e ~/.fzf.zsh ]]; then
@@ -15,11 +16,21 @@ if [[ -e ~/.fzf.zsh ]]; then
 fi
 
 # https://coderwall.com/p/_s_xda/fix-ssh-agent-in-reattached-tmux-session-shells
-function fixssh {
-  for key in SSH_AUTH_SOCK SSH_CONNECTION SSH_CLIENT; do
-    if (tmux show-environment | grep "^${key}" > /dev/null); then
-      value=`tmux show-environment | grep "^${key}" | sed -e "s/^[A-Z_]*=//"`
-      export ${key}="${value}"
-    fi
-  done
+# https://babushk.in/posts/renew-environment-tmux.html
+if [ -n "$TMUX" ]; then                                                                               
+    function fixtmux {
+        for key in VIM_THEME SSH_AUTH_SOCK SSH_CONNECTION SSH_CLIENT; do
+            if (tmux show-environment | grep "^${key}" > /dev/null); then
+                value=`tmux show-environment | grep "^${key}" | sed -e "s/^[A-Z_]*=//"`
+                export ${key}="${value}"
+            fi
+        done
+    }
+else
+    function fixtmux {}
+fi
+
+# TODO: change this preexec
+function preexec {                                                                                    
+    fixtmux
 }
