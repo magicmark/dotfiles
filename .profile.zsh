@@ -1,3 +1,8 @@
+export VISUAL="nvim"
+export TERM="xterm-256color"
+alias vim=nvim
+
+
 if [[ -e ~/.fzf.zsh ]]; then
     function ff {
         nvim $(fzf)
@@ -14,4 +19,3 @@ function fixssh {
   done
 }
 
-alias vim=nvim

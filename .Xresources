@@ -1,0 +1,72 @@
+Xft.dpi: 180
+Xft.autohint: 0
+Xft.lcddefault: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+URxvt.font: xft:Hack:size=10:antialias=true
+URxvt.boldFont: xft:Hack:size=10:antialias=true:bold
+!URxvt.font: xft:Meslo LG M Regular for Powerline:size=10:antialias=true
+!URxvt.font: xft:Roboto Mono Light for Powerline:size=10:antialias=true
+!URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10:antialias=true
+!URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:size=10:antialias=true:bold
+!URxvt.boldFont: xft:Roboto Mono Medium for Powerline:size=10:antialias=true
+!URxvt.font: xft:Meslo LG M Regular for Powerline:size=10:antialias=true
+
+
+
+! rofi
+rofi.modi: run
+rofi.font: Hack 32
+rofi.width: 75
+rofi.lines: 6
+rofi.columns: 1
+rofi.opacity: 80
+
+
+
+/* Rofi */
+#define r_bg   #1d2021
+#define r_fg   #ebdbb2
+#define r_hlfg #d65d0e
+
+! States: bg, fg, bgalt, hlbg, hlfg
+rofi.color-enabled: true
+rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
+rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
+rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
+! states: background, border
+rofi.color-window: r_bg,#d5c4a1
+
+
+
+! === gruvbox color scheme ===
+!*background: #1d2021
+*background: #282828
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2

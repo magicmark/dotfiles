@@ -28,10 +28,10 @@ function prompt_char {
 # Status line parts
 # ======================
 
-local curr_user="%{$FG[199]%}%n%{$reset_color%}"
-local curr_host="%{$FG[149]%}%m%{$reset_color%}"
+local curr_user="%{$fg[blue]%}%n%{$reset_color%}"
+local curr_host="%{$fg[green]%}%m%{$reset_color%}"
 local curr_dir="%{$FG[117]%}%~%{$reset_color%}"
-local curr_git=`git rev-parse --abbrev-ref HEAD`
+# local curr_git=`git rev-parse --abbrev-ref HEAD`
 
 PROMPT='
 ╭─ ${curr_user}@${curr_host}: ${curr_dir}$(git_prompt_info)$(virtualenv_info)
