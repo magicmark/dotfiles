@@ -1,7 +1,7 @@
 # markl
 #
 # <mark@larah.me> https://github.com/magicmark
-# Theme adapted from dst
+# Theme inspired by robbyrussell and dst
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg_bold[blue]%}git:(%{$fg[red]%}"
@@ -31,7 +31,6 @@ function prompt_char {
 local curr_user="%{$fg_bold[blue]%}%n%{$reset_color%}"
 local curr_host="%{$fg_bold[green]%}%m%{$reset_color%}"
 local curr_dir="%{$fg_bold[cyan]%}%~%{$reset_color%}"
-# local curr_git=`git rev-parse --abbrev-ref HEAD`
 
 PROMPT='
 ╭─ ${curr_user}@${curr_host}: ${curr_dir}$(git_prompt_info)$(virtualenv_info)
