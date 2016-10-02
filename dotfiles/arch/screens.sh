@@ -21,7 +21,7 @@ function _clear_other_screens {
 
 function _restart_i3 {
     i3-msg restart
-    feh --bg-fill ~/backgrounds/fish.jpg 
+    feh --bg-fill ~/backgrounds/fish.jpg
 }
 
 function screenset {

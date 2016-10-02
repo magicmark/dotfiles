@@ -1,1 +1,1 @@
-export fpath=$fpath:$DOTFILES/arch/completion
+source $DOTFILES/arch/screens.sh
