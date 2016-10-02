@@ -17,7 +17,7 @@ if [[ `uname` == 'Darwin' ]]; then
     source $DOTFILES/.zshrc.osx
 elif [[ `uname` == 'Linux' ]]; then
     export IS_LINUX=1
-    source $DOTILFES/.zshrc.linux
+    source $DOTFILES/.zshrc.linux
 fi
 
 if [[ -e ~/.zshrc.local ]]; then
