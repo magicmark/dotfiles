@@ -47,6 +47,6 @@ else
 fi
 
 # TODO: change this preexec
-function preexec {                                                                                    
+function preexec {
     fixtmux
 }

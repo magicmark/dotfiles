@@ -26,14 +26,23 @@ if [ ! `which zsh` ]; then
 fi
 
 
+if [ ! `which tmux` ]; then
+    echo "[+] tmux is not installed - please install tmux!"
+    exit 1;
+fi
+
+
 if [ ! -d ~/.oh-my-zsh ]; then
     echo "[+] Installing oh-my-zsh..."
 
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+    # Change shell
     chsh -s $(grep /zsh$ /etc/shells | tail -1)
 else
     echo "[+] Skipping install of oh-my-zsh"
 fi
+
 
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     echo "[+] Installing Vundle..."
@@ -42,6 +51,7 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 else
     echo "[+] Skipping install of Vundle"
 fi
+
 
 if [ ! -d ~/.nvm ]; then
     echo "[+] Installing nvm..."
@@ -54,5 +64,10 @@ if [ ! -d ~/.nvm ]; then
 else
     echo "[+] Skipping install of nvm"
 fi
+
+
+# Install vim plugins
+echo "[+] Installing vundle plugins"
+nvim +PluginInstall +qall
 
 echo "[+] All done!"

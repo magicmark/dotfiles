@@ -1,4 +1,4 @@
-!Xft.dpi: 180
+Xft.dpi: 180
 Xft.autohint: 0
 Xft.lcddefault: lcddefault
 Xft.hintstyle: hintfull
@@ -6,20 +6,18 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt.font: xft:Hack:size=10:antialias=true
-URxvt.boldFont: xft:Hack:size=10:antialias=true:bold
+URxvt.font: xft:Hack:size=9:antialias=true
+URxvt.boldFont: xft:Hack:size=9:antialias=true:bold
 URxvt.scrollStyle: rxvt
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 
-URxvt*letterSpace: -1
+! URxvt*letterSpace: -1
 
 
 URxvt.depth: 32
-!URxvt.geometry: 90x30
-!URxvt.fading: 0
-!URxvt.saveLines: 10000
-!URxvt.internalBorder: 3
+URxvt.saveLines: 10000
+URxvt.internalBorder: 3
 !URxvt.lineSpace: 0
 URxvt.antialias: 1
 
@@ -56,6 +54,8 @@ rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
 ! states: background, border
 rofi.color-window: r_bg,#d5c4a1
 
+Xcursor.theme: whiteglass
+Xcursor.size: 32
 
 
 ! === gruvbox color scheme ===
