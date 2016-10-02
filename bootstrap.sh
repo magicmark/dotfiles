@@ -26,12 +26,6 @@ if [ ! `which zsh` ]; then
 fi
 
 
-if [ ! `which tmux` ]; then
-    echo "[+] tmux is not installed - please install tmux!"
-    exit 1;
-fi
-
-
 if [ ! -d ~/.oh-my-zsh ]; then
     echo "[+] Installing oh-my-zsh..."
 
@@ -69,5 +63,16 @@ fi
 # Install vim plugins
 echo "[+] Installing vundle plugins"
 nvim +PluginInstall +qall
+
+
+# Optional dependencies to remind me about
+if [ ! `which tmux` ]; then
+    echo "[+] Suggested - tmux is not installed - please install tmux!"
+fi
+
+
+if [ ! `which virtualenv` ]; then
+    echo "[+] Suggested - virtualenv is not installed - please install virtualenv!"
+fi
 
 echo "[+] All done!"
