@@ -7,6 +7,20 @@ alias :e=nvim
 alias :E=nvim
 alias ezsh='nvim $DOTFILES/.zshrc'
 
+if [[ -d ~/bin ]]; then
+    local MYBINPATH=~/bin
+    export PATH="$PATH:$MYBINPATH"
+fi
+
+# Set up Go
+export GOPATH=~/go
+export PATH="$PATH:$GOPATH/bin"
+
+# Set up Node
+export NVM_DIR="/home/mark/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+
 function cddot {
     cd $DOTFILES
 }
@@ -33,7 +47,7 @@ else
 fi
 
 # TODO: change this preexec
-function preexec {                                                                                    
+function preexec {
     fixtmux
 }
 
