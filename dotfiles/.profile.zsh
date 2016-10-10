@@ -7,6 +7,8 @@ alias :e=nvim
 alias :E=nvim
 alias ezsh='nvim $DOTFILES/.zshrc'
 
+alias llf='ls -lAF'
+
 if [[ -d ~/bin ]]; then
     local MYBINPATH=~/bin
     export PATH="$PATH:$MYBINPATH"
