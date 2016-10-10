@@ -4,7 +4,7 @@ export ZSH_CUSTOM=$HOME/dotfiles/custom_ohmyzsh
 export DOTFILES=$HOME/dotfiles
 
 ZSH_THEME="markl"
-plugins=(git tmux vundle virtualenv)
+plugins=(git tmux vundle virtualenv zsh_reload)
 
 # User configuration
 
@@ -41,4 +41,3 @@ fi
 if [[ -e ~/.fzf.zsh ]]; then
     source ~/.fzf.zsh
 fi
-

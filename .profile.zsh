@@ -36,3 +36,7 @@ fi
 function preexec {                                                                                    
     fixtmux
 }
+
+function pvim {
+    nvim $(echo $1 | sed 's/\./\//g').py
+}
