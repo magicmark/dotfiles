@@ -11,16 +11,18 @@ for folder in $folders; do
     mkdir -p $HOME/$folder
 done
 
-files=$(find . -type f && find . -type l)
+files=$(find "$DOTFILES_DIR/dotfiles" -type f && find "$DOTFILES_DIR/dotfiles" -type l)
 for file in $files; do
-    fullpath="$HOME/$file"
+    filebase="$(basename $file)"
+    fullpath="$HOME"/"$filebase"
+
     linkfile=true
 
     if [ -f $fullpath ] || [ -h $fullpath ]; then
         readinput=true
 
         while $readinput; do
-            read -p "$file already exists! Delete it and symlink? [y/N] " result
+            read -p "$filebase already exists! Delete it and symlink? [y/N] " result
             if [ "$result" == 'y' ] || [ "$result" == 'yes' ]; then
                 readinput=false
             else
@@ -33,7 +35,7 @@ for file in $files; do
     if $linkfile; then
         echo -e "Symlinking $fullpath -> $file\n"
         # ln -bfrs "$file" "$fullpath"
-        ln -frs "$file" "$fullpath"
+        ln -fs "$file" "$fullpath"
     else
         echo -e "Skipping $file (you might want to move it and rerun this script!)\n"
     fi
