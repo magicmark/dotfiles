@@ -207,7 +207,7 @@ set backspace=indent,eol,start
 
 function! SpellCheck()
     let l:word = input("Word you're trying to spell: ")
-    let l:result = system('/nail/home/markl/scripts/spellcheck.py ' . word)
+    let l:result = system($DOTFILES . '/../scripts/spellcheck.py ' . word)
     redraw
     echo l:result
     let @@ = l:result
