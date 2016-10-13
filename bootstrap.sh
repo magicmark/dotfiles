@@ -8,31 +8,31 @@
 
 set -e
 
-if [ ! `which git` ]; then
+if [ ! "$(which git)" ]; then
     echo "[+] Git is not installed - please install git!"
     exit 1;
 fi
 
 
-if [ ! `which nvim` ]; then
+if [ ! "$(which nvim)" ]; then
     echo "[+] nvim is not installed - please install neovim!"
     exit 1;
 fi
 
 
-if [ ! `which zsh` ]; then
+if [ ! "$(which zsh)" ]; then
     echo "[+] zsh is not installed - please install zsh!"
     exit 1;
 fi
 
 
-if [ ! -d ~/.oh-my-zsh ]; then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "[+] Installing oh-my-zsh..."
 
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
     # Change shell
-    chsh -s $(grep /zsh$ /etc/shells | tail -1)
+    chsh -s "$(grep /zsh$ /etc/shells | tail -1)"
 else
     echo "[+] Skipping install of oh-my-zsh"
 fi
@@ -53,10 +53,20 @@ if [ ! -d ~/.nvm ]; then
     export NVM_DIR="$HOME/.nvm" && (
         git clone https://github.com/creationix/nvm.git "$NVM_DIR"
         cd "$NVM_DIR"
-        git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
-    ) && . "$NVM_DIR/nvm.sh"
+        git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)"
+    )
 else
     echo "[+] Skipping install of nvm"
+fi
+
+
+if [ ! -d "$HOME/.fzf" ]; then
+    echo "[+] Installling fzf..."
+
+    git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+    "$HOME/.fzf/install"
+else
+    echo "[+] Skipping install of fzf"
 fi
 
 
@@ -66,12 +76,12 @@ nvim +PluginInstall +qall
 
 
 # Optional dependencies to remind me about
-if [ ! `which tmux` ]; then
+if [ ! "$(which tmux)" ]; then
     echo "[+] Suggested - tmux is not installed - please install tmux!"
 fi
 
 
-if [ ! `which virtualenv` ]; then
+if [ ! "$(which virtualenv)" ]; then
     echo "[+] Suggested - virtualenv is not installed - please install virtualenv!"
 fi
 
