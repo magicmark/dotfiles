@@ -4,7 +4,7 @@ export ZSH_CUSTOM=$HOME/dotfiles/custom_ohmyzsh
 export DOTFILES=$HOME/dotfiles/dotfiles
 
 ZSH_THEME="markl"
-plugins=(git tmux vundle virtualenv)
+plugins=(git tmux vundle virtualenv zsh_reload)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
 source $ZSH/oh-my-zsh.sh
