@@ -6,7 +6,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 " ========================================================
-" Plugin 'wookiehangover/jshint.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'Yggdroot/indentLine'
 Plugin 'airblade/vim-gitgutter'
@@ -32,12 +31,11 @@ Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
 " ========================================================
-" theme settings
+" Theme settings
 " ========================================================
 
 syntax on
 filetype plugin indent on
-" let g:solarized_termcolors=256
 syntax enable
 set background=dark
 
@@ -49,22 +47,13 @@ endif
 if $VIM_THEME == 'solarized'
     colorscheme solarized
     let g:airline_theme='solarized'
+    let g:solarized_visibility = "high"
+    let g:solarized_contrast = "high"
+    let g:solarized_termtrans = 1
 endif
 
-
-
-
-" colorscheme monokai
-
-" set cursorline
-"set t_Co=256  " vim-monokai now only support 256 colours in terminal.
-
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:solarized_termtrans = 1
-
 " ========================================================
-" personal keybindings
+" Personal keybindings
 " ========================================================
 :noremap p[ :bp <cr>
 :inoremap p[ <Esc>:bp <cr>
@@ -72,9 +61,6 @@ let g:solarized_termtrans = 1
 :inoremap p] <Esc>:bn <cr>
 
 :noremap -- :NERDTreeToggle <cr>
-:inoremap -- <Esc>:NERDTreeToggle <cr>
-
-
 
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
@@ -87,11 +73,12 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 highlight clear SignColumn
 call gitgutter#highlight#define_highlights()
 
+
 " ========================================================
 " Yggdroot/indentLine settings
 " ========================================================
-"let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_char = '│'
+
 
 " ========================================================
 " bling/vim-airline settings
@@ -105,6 +92,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_y = airline#section#create(['%F'])
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
 
 " ========================================================
 " scrooloose/syntastic settings
@@ -122,6 +110,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
+
 " ========================================================
 " heavenshell/vim-jsdoc settings
 " ========================================================
@@ -135,6 +124,7 @@ let g:jsdoc_input_description = 1
 " Characters used to separate @param name and description.
 let g:jsdoc_param_description_separator	= ' - '
 
+
 " ========================================================
 " elzr/vim-json settings
 " ========================================================
@@ -142,8 +132,9 @@ let g:jsdoc_param_description_separator	= ' - '
 " Disable the concealing
 let g:vim_json_syntax_conceal = 0
 
+
 " ========================================================
-" vim settings
+" More vim settings
 " ========================================================
 
 " line numbers
