@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import os
 import sys
 
 HOME = os.path.expanduser("~")
-DOTFILES_DIR = os.path.dirname(os.path.realpath(__file__))
+DOTFILES_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 
 def link_file(file_path, symlink_path):
@@ -17,7 +17,7 @@ def link_file(file_path, symlink_path):
             os.makedirs(target_dir)
 
     if os.path.exists(symlink_path) or os.path.lexists(symlink_path):
-        answer = raw_input(' '.join((
+        answer = input(' '.join((
             '\n{file} already exists!',
             'Delete it and symlink? [y/N] ',
         )).format(file=readable_path))
