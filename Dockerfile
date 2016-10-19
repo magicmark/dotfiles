@@ -2,8 +2,8 @@ FROM ubuntu:latest
 MAINTAINER Mark Larah <mark@larah.me>
 
 # Install assumed dependencies
-RUN     add-apt-repository -y ppa:neovim-ppa/unstable &&
-        apt-get update && 
+RUN     add-apt-repository -y ppa:neovim-ppa/unstable && \
+        apt-get update && \
         apt-get install -y \
             software-properties-common \
             git \
