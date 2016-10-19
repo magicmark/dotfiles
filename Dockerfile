@@ -1,11 +1,12 @@
-FROM debian:latest
+FROM ubuntu:latest
 MAINTAINER Mark Larah <mark@larah.me>
 
-# Install assumed dependencies 
+# Install assumed dependencies
 RUN     apt-get update && apt-get install -y \
+            software-properties-common \
             git \
-            nvim \
             zsh \
+            neovim \
             && apt-get clean
 
 # Run as a new user
