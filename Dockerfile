@@ -2,7 +2,9 @@ FROM ubuntu:latest
 MAINTAINER Mark Larah <mark@larah.me>
 
 # Install assumed dependencies
-RUN     apt-get update && apt-get install -y \
+RUN     apt-get update && 
+        add-apt-repository -y ppa:neovim-ppa/unstable &&
+        apt-get install -y \
             software-properties-common \
             git \
             zsh \
