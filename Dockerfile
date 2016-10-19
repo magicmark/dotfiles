@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER Mark Larah <mark@larah.me>
 
-RUN     apt-get update &&
+RUN     apt-get update && \
             apt-get install -y software-properties-common && \
             add-apt-repository -y ppa:neovim-ppa/unstable
 
