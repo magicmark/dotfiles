@@ -1,12 +1,12 @@
 #!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 
 # -----------------------------------------------------------------------
 #
 # This will check for and install dependencies that the dotfiles rely on.
 #
 # -----------------------------------------------------------------------
-
-set -e
 
 if [ ! "$(which git)" ]; then
     echo "[+] Git is not installed - please install git!"

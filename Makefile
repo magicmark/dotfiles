@@ -12,5 +12,9 @@ bootstrap:
 linkfiles: venv
 	python bin/linkfiles.py
 
+test:
+	docker build -t markl/dotfiles_test:v0.1a .
+	docker run -t -i markl/dotfiles_test:v0.1a
+
 clean:
 	rm -rf venv
