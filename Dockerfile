@@ -1,11 +1,12 @@
 FROM ubuntu:latest
 MAINTAINER Mark Larah <mark@larah.me>
 
+RUN     apt-get update &&
+            apt-get install -y software-properties-common && \
+            add-apt-repository -y ppa:neovim-ppa/unstable
+
 # Install assumed dependencies
-RUN     add-apt-repository -y ppa:neovim-ppa/unstable && \
-        apt-get update && \
-        apt-get install -y \
-            software-properties-common \
+RUN     apt-get update && apt-get install -y \
             git \
             zsh \
             neovim \
