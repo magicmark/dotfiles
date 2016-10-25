@@ -27,9 +27,18 @@ URxvt.cursorBlink: true
 URxvt.cursorColor: #657b83
 URxvt.cursorUnderline: false
 
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,keyboard-select,clipboard
 URxvt.marcher.button: 11
 URxvt.url-launcher: google-chrome-stable
+! URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+URxvt.clipboard.autocopy: true
+URxvt.keysym.Mod4-c: perl:clipboard:copy
+URxvt.keysym.Mod4-v: perl:clipboard:paste
+URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
+
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 
 ! rofi
 rofi.modi: run
