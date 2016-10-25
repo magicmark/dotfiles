@@ -1,0 +1,1 @@
+source $DHOME/.vimrc

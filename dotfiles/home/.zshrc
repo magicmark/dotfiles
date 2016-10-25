@@ -1,23 +1,24 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_CUSTOM=$HOME/dotfiles/custom_ohmyzsh
-export DOTFILES=$HOME/dotfiles/dotfiles
+export ZSH="$HOME/.oh-my-zsh"
+export DOTFILES="$HOME/dotfiles/dotfiles"
+export DHOME="$DOTFILES/home"
+export ZSH_CUSTOM="$DOTFILES/custom_ohmyzsh"
 
 ZSH_THEME="markl"
 plugins=(git tmux vundle virtualenv zsh_reload)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 export LC_ALL="en_US.UTF-8"
 
-source $DOTFILES/.profile.zsh
+source $DOTFILES/etc/.profile.zsh
 
 if [[ `uname` == 'Darwin' ]]; then
     export IS_OSX=1
-    source $DOTFILES/.zshrc.osx
+    source $DOTFILES/etc/.zshrc.osx
 elif [[ `uname` == 'Linux' ]]; then
     export IS_LINUX=1
-    source $DOTFILES/.zshrc.linux
+    source $DOTFILES/etc/.zshrc.linux
 fi
 
 if [[ -e ~/.zshrc.local ]]; then
