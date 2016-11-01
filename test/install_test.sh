@@ -28,12 +28,12 @@ zsh --version
 
 message "Running bootstrap Script"
 /usr/bin/expect <<EOF
-spawn make bootstrap
-expect "Password:"
-send "2X4B\r"
-EOF
+spawn /home/kryten/dotfiles/bin/bootstrap.sh
+expect "Password"
+send
+
 
 message "Testing installed stuff"
 
-test_thing "
+test_thing
 message "✓ Testing was successful!"
