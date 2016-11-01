@@ -25,8 +25,8 @@ function __git_info {
             branch_info="|BISECTING"
         fi
 
-        # http://thepugautomatic.com/2008/12/git-dirty-prompt/
-        if [[ "$(git status 2> /dev/null | tail -n1)" != "nothing to commit, working directory clean" ]]; then
+        # adapted from http://thepugautomatic.com/2008/12/git-dirty-prompt/
+        if [[ ! "$(git status 2> /dev/null | tail -n1)" =~ "nothing to commit, working" ]]; then
             dirty_char=" %{$fg[yellow]%}✗%{$reset_color%}"
         fi
 
