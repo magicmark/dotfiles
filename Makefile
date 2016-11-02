@@ -17,7 +17,7 @@ linkfiles: venv
 
 .PHONY: test
 test:
-	docker build test/Dockerfile -t markl/dotfiles_test:v0.2 .
+	docker build -f test/Dockerfile -t markl/dotfiles_test:v0.2 .
 	docker run -t -i markl/dotfiles_test:v0.2
 
 clean:
