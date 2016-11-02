@@ -22,4 +22,5 @@ COPY    ../ /home/kryten/dotfiles
 WORKDIR /home/kryten/dotfiles
 
 # Run test
-CMD    ["/home/kryten/dotfiles/test/install_test.sh"]
+RUN    make venv
+CMD    ["bash", "-c", ". venv/bin/activate && /home/kryten/dotfiles/test/install_test.py"]
