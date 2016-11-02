@@ -16,7 +16,7 @@ linkfiles: venv
 	python bin/linkfiles.py
 
 .PHONY: test
-test:
+test: venv
 	docker build -f test/Dockerfile -t markl/dotfiles_test:v0.2 .
 	docker run -t -i markl/dotfiles_test:v0.2
 

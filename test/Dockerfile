@@ -7,7 +7,6 @@ RUN     apt-get update && \
 
 # Install assumed dependencies
 RUN     apt-get update && apt-get install -y \
-            build-essential \
             git \
             zsh \
             neovim \
@@ -23,5 +22,4 @@ COPY    . /home/kryten/dotfiles
 WORKDIR /home/kryten/dotfiles
 
 # Run test
-RUN    make venv
 CMD    ["bash", "-c", ". venv/bin/activate && /home/kryten/dotfiles/test/install_test.py"]
