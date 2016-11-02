@@ -7,6 +7,7 @@ RUN     apt-get update && \
 
 # Install assumed dependencies
 RUN     apt-get update && apt-get install -y \
+            build-essential \
             git \
             zsh \
             neovim \
