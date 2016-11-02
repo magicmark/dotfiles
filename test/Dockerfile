@@ -18,7 +18,7 @@ USER    kryten
 WORKDIR /home/kryten
 
 # Install dotfiles
-COPY    ../ /home/kryten/dotfiles
+COPY    . /home/kryten/dotfiles
 WORKDIR /home/kryten/dotfiles
 
 # Run test
