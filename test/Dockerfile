@@ -13,7 +13,7 @@ RUN     apt-get update && apt-get install -y \
             && apt-get clean
 
 # Run as a new user
-RUN     useradd -ms /bin/bash kryten
+RUN     useradd -ms /bin/bash kryten -p 2X4B
 USER    kryten
 WORKDIR /home/kryten
 
@@ -22,4 +22,4 @@ COPY    . /home/kryten/dotfiles
 WORKDIR /home/kryten/dotfiles
 
 # Run test
-CMD    ["/home/kryten/dotfiles/bin/install_test.sh"]
+CMD    ["bash", "-c", ". venv/bin/activate && /home/kryten/dotfiles/test/install_test.py"]

@@ -41,6 +41,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+p exec qutebrowser
 bindsym $mod4+1 exec --no-startup-id google-chrome-stable
+bindsym $mod4+0 exec scrot
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -121,6 +122,9 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+
+bindsym $mod+Shift+s exec ~/arch/i3scripts/./screen.sh
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -161,6 +165,13 @@ bar {
 }
 
 for_window [class="^.*"] border pixel 0
-gaps inner 12
+gaps inner 16
 gaps outer 10
+
+
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
 
