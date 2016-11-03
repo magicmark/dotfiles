@@ -169,6 +169,11 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" Persistent Undo, Vim remembers everything even after the file is closed.
+set undofile
+set undolevels=500
+set undoreload=500
+
 " Relative numbers
 set relativenumber
 
