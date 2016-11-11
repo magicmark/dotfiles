@@ -26,9 +26,12 @@ export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"
 
 # Set up Node
-export NVM_DIR="$HOME/.nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    source "$NVM_DIR/nvm.sh"
+# TODO: investigate how to resolve this check
+if [ -z "$npm_config_prefix" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        source "$NVM_DIR/nvm.sh"
+    fi
 fi
 
 

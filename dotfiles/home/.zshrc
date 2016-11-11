@@ -2,9 +2,12 @@
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/dotfiles/dotfiles"
 export DHOME="$DOTFILES/home"
+export DF_ROOT="$HOME/dotfiles"
 export ZSH_CUSTOM="$DOTFILES/custom_ohmyzsh"
 
 ZSH_THEME="markl"
+PROMPT_BREAK=95
+
 plugins=(git tmux vundle virtualenv zsh_reload)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
