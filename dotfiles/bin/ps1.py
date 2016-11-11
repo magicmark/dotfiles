@@ -19,13 +19,14 @@ Part = namedtuple('Part', ('colored_output', 'raw_length'))
 
 class Color:
     WHITE = 0
-    RED = 1
+    RED = 9
     GREY = 6
     YELLOW = 82
-    BLUE = 44
-    GREEN = 40
+    BLUE = 4
+    GREEN = 3
     CYAN = 36
     PURPLE = 139
+    UHOH = 202
 
 
 def run_command(command):
@@ -55,7 +56,7 @@ def get_git_part():
     if not os.path.isdir(git_dir):
         return None
 
-    branch_name = 'master'
+    branch_name = run_command(('git', 'symbolic-ref', '--short', '-q', 'HEAD'))
 
     branch_info = ''
 
@@ -75,7 +76,7 @@ def get_git_part():
 
     bits = ['git:(', branch_name, ')']
     if not is_clean:
-        bits.extend(['✗'])
+        bits.extend([' ', '✗'])
 
     colored_output = ''.join((
         colorize(Color.BLUE, bits[0]),
@@ -84,7 +85,8 @@ def get_git_part():
     ))
 
     if len(bits) > 3:
-        colored_output += colorize(Color.YELLOW, bits[3])
+        colored_output += bits[3]
+        colored_output += colorize(Color.UHOH, bits[4])
 
     return Part(
         colored_output=colored_output,
