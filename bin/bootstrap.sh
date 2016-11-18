@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+echo "[+] Running bootstrap script for user $(whoami)"
+
 # -----------------------------------------------------------------------
 #
 # This will check for and install dependencies that the dotfiles rely on.
@@ -31,8 +33,10 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
-    # Change shell
-    chsh -s "$(grep /zsh$ /etc/shells | tail -1)"
+    if [ -z "${IN_DOCKER_TEST:-}" ]; then
+        # Change shell
+        chsh -s "$(grep /zsh$ /etc/shells | tail -1)"
+    fi
 else
     echo "[+] Skipping install of oh-my-zsh"
 fi
@@ -64,7 +68,7 @@ if [ ! -d "$HOME/.fzf" ]; then
     echo "[+] Installling fzf..."
 
     git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-    "$HOME/.fzf/install"
+    "$HOME/.fzf/install" --completion  --key-bindings --no-update-rc
 else
     echo "[+] Skipping install of fzf"
 fi
