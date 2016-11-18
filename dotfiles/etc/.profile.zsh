@@ -26,9 +26,12 @@ export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"
 
 # Set up Node
-export NVM_DIR="$HOME/.nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    source "$NVM_DIR/nvm.sh"
+# TODO: investigate how to resolve this check
+if [ -z "$npm_config_prefix" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        source "$NVM_DIR/nvm.sh"
+    fi
 fi
 
 
@@ -67,4 +70,22 @@ function preexec {
 
 function pvim {
     nvim $(echo $1 | sed 's/\./\//g').py
+}
+
+# http://stackoverflow.com/a/23002317/4396258
+function abspath {
+    # generate absolute path from relative path
+    # $1     : relative filename
+    # return : absolute path
+    if [ -d "$1" ]; then
+        # dir
+        (cd "$1"; pwd)
+    elif [ -f "$1" ]; then
+        # file
+        if [[ $1 == */* ]]; then
+            echo "$(cd "${1%/*}"; pwd)/${1##*/}"
+        else
+            echo "$(pwd)/$1"
+        fi
+    fi
 }
