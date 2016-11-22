@@ -82,7 +82,7 @@ nvim +PluginInstall +qall
 mkdir -p ~/.ssh
 
 # Ensure github.com is trusted
-if [ "$(grep github.com ~/.ssh/known_hosts)" ]; then
+if ! grep -q github.com ~/.ssh/known_hosts; then
     ssh-keyscan github.com >> ~/.ssh/known_hosts
 fi
 
