@@ -83,6 +83,7 @@ mkdir -p ~/.ssh
 
 # Ensure github.com is trusted
 if ! grep -q github.com ~/.ssh/known_hosts; then
+    echo "[+] Adding ssh key for github.com to known_hosts"
     ssh-keyscan github.com >> ~/.ssh/known_hosts
 fi
 
