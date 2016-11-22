@@ -78,6 +78,13 @@ fi
 echo "[+] Installing vundle plugins"
 nvim +PluginInstall +qall
 
+# Make sure .ssh exists
+mkdir -p ~/.ssh
+
+# Ensure github.com is trusted
+if [ "$(grep github.com ~/.ssh/known_hosts)" ]; then
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
+fi
 
 # Install ~/GitApps
 mkdir -p ~/GitApps
