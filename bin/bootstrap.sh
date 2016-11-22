@@ -79,6 +79,14 @@ echo "[+] Installing vundle plugins"
 nvim +PluginInstall +qall
 
 
+# Install ~/GitApps
+mkdir -p ~/GitApps
+
+if [ "$(uname)" == 'Linux' ]; then
+    git clone git@github.com:Yelp/aactivator.git ~/GitApps/aactivator
+fi
+
+
 # Optional dependencies to remind me about
 if [ ! "$(which tmux)" ]; then
     echo "[+] Suggested - tmux is not installed - please install tmux!"
