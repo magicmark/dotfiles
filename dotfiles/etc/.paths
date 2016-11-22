@@ -1,0 +1,7 @@
+# Path for dotfiles stuff
+export DF_ROOT="$HOME/dotfiles"
+export DOTFILES="$DF_ROOT/dotfiles"
+export DHOME="$DOTFILES/home"
+
+# For oh-my-zsh
+export ZSH_CUSTOM="$DOTFILES/custom_ohmyzsh"

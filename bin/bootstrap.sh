@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+source "$HOME/dotfiles/dotfiles/etc/.paths"
+
 echo "[+] Running bootstrap script for user $(whoami)"
 
 # -----------------------------------------------------------------------
