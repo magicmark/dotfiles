@@ -15,8 +15,7 @@ RUN     apt-get update && apt-get install -y \
             neovim \
             tmux \
             wget \
-            zsh \
-            && apt-get clean
+            zsh
 
 # Run as a new user
 RUN     useradd -ms /bin/bash kryten -p 2X4B

@@ -91,7 +91,7 @@ fi
 mkdir -p ~/GitApps
 
 if [ "$(uname)" == 'Linux' ]; then
-    git clone git@github.com:Yelp/aactivator.git ~/GitApps/aactivator
+    git clone https://github.com/Yelp/aactivator.git ~/GitApps/aactivator
 fi
 
 
