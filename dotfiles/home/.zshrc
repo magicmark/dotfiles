@@ -1,12 +1,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export DOTFILES="$HOME/dotfiles/dotfiles"
-export DHOME="$DOTFILES/home"
+
+# Path for dotfiles stuf
 export DF_ROOT="$HOME/dotfiles"
+export DOTFILES="$DF_ROOT/dotfiles"
+export DHOME="$DOTFILES/home"
+
 export ZSH_CUSTOM="$DOTFILES/custom_ohmyzsh"
 
 ZSH_THEME="markl"
-PROMPT_BREAK=95
 
 plugins=(git tmux vundle virtualenv zsh_reload)
 
@@ -23,6 +25,8 @@ elif [[ `uname` == 'Linux' ]]; then
     export IS_LINUX=1
     source $DOTFILES/etc/.zshrc.linux
 fi
+
+source $DOTFILES/etc/.docker.zsh
 
 if [[ -e ~/.zshrc.local ]]; then
     source ~/.zshrc.local
