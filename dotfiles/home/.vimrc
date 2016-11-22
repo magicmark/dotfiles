@@ -197,6 +197,10 @@ set nohlsearch
 
 set backspace=indent,eol,start
 
+" http://www.bestofvim.com/tip/leave-ex-mode-good/
+" what even is ex mode anyway
+nnoremap Q <nop>
+
 " ========================================================
 " snippets
 " ========================================================
