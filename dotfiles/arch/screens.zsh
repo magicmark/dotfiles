@@ -94,21 +94,19 @@ function screenset {
     elif [ "$1" == 'work' ]; then
         _set_home_dell
 
-        echo "Setting display for Dell U2715H"
+        echo "Setting display for Dell ????"
         eval "xrandr \
             --output eDP-1 --mode 2880x1800 --dpi 180 \
             --output DP-1 --dpi 180 --right-of eDP-1 $(_set_scaled_output 1.7 2560 1440 2880)"
 
+    elif [ "$1" == 'home' ]; then
+        _set_home_dell
 
-
-            #--output HDMI-1 --mode 1920x1200 --panning 3840x2400+2880+0 --scale 2x2 --right-of eDP-1  \
-            #--output HDMI-2 --mode "1200x1920_59.90" --rotate left --panning 3840x2400+6720+0 --scale 2x2 --right-of HDMI-1
-#            --output HDMI-2 --mode 1200x1920_59.90 --panning 2400x3840+0+1800 --scale 2x2 --below eDP-1
-            #--output HDMI-2 --auto --panning 3840x2400+0+0 --scale 2x2 --right-of HDMI-1
-        #    --output HDMI-1 --mode 1920x1200 --right-of eDP-1 \
-            #--output HDMI-2 --mode 1200x1920_59.90 --right-of HDMI-2
-
-    fi
+        echo "Setting display for Dell U2715H"
+        eval "xrandr \
+            --output eDP-1 --mode 2880x1800 --dpi 180 \
+            --output DP-1 --dpi 180 --left-of eDP-1 $(_set_scaled_output 1.7 2560 1440 0)"
+     fi
 
     _restart_i3
 }

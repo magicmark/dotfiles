@@ -48,6 +48,8 @@ fi
 # Fixes bracketed paste mode issues
 alias fixpaste="echo \"\e[?2004l\""
 
+alias untar="tar -zxvf"
+
 # https://coderwall.com/p/_s_xda/fix-ssh-agent-in-reattached-tmux-session-shells
 # https://babushk.in/posts/renew-environment-tmux.html
 if [ -n "$TMUX" ]; then                                                                               
