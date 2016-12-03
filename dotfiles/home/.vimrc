@@ -198,6 +198,11 @@ set nohlsearch
 
 set backspace=indent,eol,start
 
+" http://blog.mattcrampton.com/post/86216925656/move-vim-swp-files<Paste>
+set backupdir=~/.vim/backup_files//
+set directory=~/.vim/swap_files//
+set undodir=~/.vim/undo_files//
+
 " http://www.bestofvim.com/tip/leave-ex-mode-good/
 " what even is ex mode anyway
 nnoremap Q <nop>
