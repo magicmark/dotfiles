@@ -20,9 +20,6 @@ elif [[ `uname` == 'Linux' ]]; then
     source $DOTFILES/etc/.zshrc.linux
 fi
 
-source "$DOTFILES/etc/.docker.zsh"
-source "$DOTFILES/etc/.vim.zsh"
-
 if [[ -e ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi

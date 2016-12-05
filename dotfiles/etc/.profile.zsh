@@ -1,10 +1,12 @@
 #!/usr/bin/zsh
 
+source "$DOTFILES/etc/.docker.zsh"
+source "$DOTFILES/etc/.vim.zsh"
+
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export TERM="xterm-256color"
 
-alias vim=nvim
 alias :e=nvim
 alias :E=nvim
 alias ezsh='nvim $DOTFILES/.zshrc'
@@ -68,10 +70,6 @@ fi
 # TODO: change this preexec
 function preexec {
     fixtmux
-}
-
-function pvim {
-    nvim $(echo $1 | sed 's/\./\//g').py
 }
 
 # http://stackoverflow.com/a/23002317/4396258

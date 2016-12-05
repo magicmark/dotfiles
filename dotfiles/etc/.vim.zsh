@@ -6,3 +6,8 @@ if [ -n "$DEVBOX" ]; then
         nvim "$filepath"
     }
 fi
+
+function pvim {
+    nvim $(echo $1 | sed 's/\./\//g').py
+}
+
