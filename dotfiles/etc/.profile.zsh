@@ -25,7 +25,8 @@ fi
 
 # Set up Go
 export GOPATH=~/go
-export PATH="$PATH:$GOPATH/bin"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
 
 # Set up Node
 # TODO: investigate how to resolve this check
