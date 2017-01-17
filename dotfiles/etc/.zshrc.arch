@@ -1,2 +1,0 @@
-source $DOTFILES/arch/screens.zsh
-eval "$($HOME/GitApps/aactivator/./aactivator.py)"
