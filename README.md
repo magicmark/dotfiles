@@ -1,4 +1,3 @@
 # markl's dotfiles
 
-## ** DEPRECATED ** 
-301 https://github.com/magicmark/cistern
+**Deprecated!** 301 https://github.com/magicmark/cistern
